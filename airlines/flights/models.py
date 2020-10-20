@@ -22,7 +22,7 @@ class flights(models.Model):
 class Passenger(models.Model):
     first = models.CharField(max_length=64)
     last = models.CharField(max_length=64)
-    flights = models.ManyToManyField(flights, blank=True, related_name="Passenger")
+    flights = models.ManyToManyField(flights, blank=True, related_name="passengers")
 
     def __str__(self):
         return f"{self.first} {self.last}"
