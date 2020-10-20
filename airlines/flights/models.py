@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class Airport(models.model):
+class Airport(models.Model):
     code = models.CharField(max_length=3)
     city = models.CharField(max_length=64)
 
@@ -11,8 +11,8 @@ class Airport(models.model):
 
 
 class flights(models.Model):
-    origin = models.CharField(max_length=64)
-    destination = models.CharField(max_length=64)
+    origin = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="Departures")
+    destination = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="Arrivals")
     duration = models.IntegerField()
 
     def __str__(self):
