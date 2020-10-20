@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from .models import flights
 
 
@@ -10,7 +11,7 @@ def index(request):
 
 
 def flight(request, flight_id):
-    flight = flights.objects.get(pk=flight_id)
+    f = flights.objects.get(pk=flight_id)
     return render(request, "flights/flight.html", {
-        "flight": flight
+        "flight": f
     })
